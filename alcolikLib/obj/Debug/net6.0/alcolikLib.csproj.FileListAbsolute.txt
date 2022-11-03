@@ -10,3 +10,13 @@ C:\Users\lione\source\repos\alcolik\alcolikLib\obj\Debug\net6.0\alcolikLib.dll
 C:\Users\lione\source\repos\alcolik\alcolikLib\obj\Debug\net6.0\refint\alcolikLib.dll
 C:\Users\lione\source\repos\alcolik\alcolikLib\obj\Debug\net6.0\alcolikLib.pdb
 C:\Users\lione\source\repos\alcolik\alcolikLib\obj\Debug\net6.0\ref\alcolikLib.dll
+C:\Users\lione\source\repos\alcolik\alcolikLib\bin\Debug\net6.0\Microsoft.Data.Tools.Schema.Sql.dll
+C:\Users\lione\source\repos\alcolik\alcolikLib\bin\Debug\net6.0\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
+C:\Users\lione\source\repos\alcolik\alcolikLib\bin\Debug\net6.0\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
+C:\Users\lione\source\repos\alcolik\alcolikLib\bin\Debug\net6.0\Microsoft.Data.Tools.Utilities.dll
+C:\Users\lione\source\repos\alcolik\alcolikLib\bin\Debug\net6.0\Microsoft.SqlServer.TransactSql.ScriptDom.dll
+C:\Users\lione\source\repos\alcolik\alcolikLib\bin\Debug\net6.0\fr\Microsoft.Data.Tools.Schema.Sql.resources.dll
+C:\Users\lione\source\repos\alcolik\alcolikLib\bin\Debug\net6.0\fr\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\lione\source\repos\alcolik\alcolikLib\bin\Debug\net6.0\fr\Microsoft.Data.Tools.Utilities.resources.dll
+C:\Users\lione\source\repos\alcolik\alcolikLib\bin\Debug\net6.0\fr\Microsoft.SqlServer.TransactSql.ScriptDom.resources.dll
+C:\Users\lione\source\repos\alcolik\alcolikLib\obj\Debug\net6.0\alcolikLib.csproj.CopyComplete
