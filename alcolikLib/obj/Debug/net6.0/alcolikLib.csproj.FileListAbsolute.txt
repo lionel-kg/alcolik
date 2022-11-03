@@ -1,0 +1,12 @@
+C:\Users\lione\source\repos\alcolik\alcolikLib\bin\Debug\net6.0\alcolikLib.deps.json
+C:\Users\lione\source\repos\alcolik\alcolikLib\bin\Debug\net6.0\alcolikLib.dll
+C:\Users\lione\source\repos\alcolik\alcolikLib\bin\Debug\net6.0\alcolikLib.pdb
+C:\Users\lione\source\repos\alcolik\alcolikLib\obj\Debug\net6.0\alcolikLib.csproj.AssemblyReference.cache
+C:\Users\lione\source\repos\alcolik\alcolikLib\obj\Debug\net6.0\alcolikLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lione\source\repos\alcolik\alcolikLib\obj\Debug\net6.0\alcolikLib.AssemblyInfoInputs.cache
+C:\Users\lione\source\repos\alcolik\alcolikLib\obj\Debug\net6.0\alcolikLib.AssemblyInfo.cs
+C:\Users\lione\source\repos\alcolik\alcolikLib\obj\Debug\net6.0\alcolikLib.csproj.CoreCompileInputs.cache
+C:\Users\lione\source\repos\alcolik\alcolikLib\obj\Debug\net6.0\alcolikLib.dll
+C:\Users\lione\source\repos\alcolik\alcolikLib\obj\Debug\net6.0\refint\alcolikLib.dll
+C:\Users\lione\source\repos\alcolik\alcolikLib\obj\Debug\net6.0\alcolikLib.pdb
+C:\Users\lione\source\repos\alcolik\alcolikLib\obj\Debug\net6.0\ref\alcolikLib.dll
