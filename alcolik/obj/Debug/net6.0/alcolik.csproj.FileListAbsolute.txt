@@ -264,3 +264,5 @@ C:\Users\lione\source\repos\alcolik\alcolik\obj\Debug\net6.0\refint\alcolik.dll
 C:\Users\lione\source\repos\alcolik\alcolik\obj\Debug\net6.0\alcolik.pdb
 C:\Users\lione\source\repos\alcolik\alcolik\obj\Debug\net6.0\alcolik.genruntimeconfig.cache
 C:\Users\lione\source\repos\alcolik\alcolik\obj\Debug\net6.0\ref\alcolik.dll
+C:\Users\lione\source\repos\alcolik\alcolik\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\lione\source\repos\alcolik\alcolik\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
