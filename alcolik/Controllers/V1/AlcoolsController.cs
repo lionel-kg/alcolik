@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,13 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using alcolik.Data;
 using alcolik.Model;
-using alcolikLib.Controllers;
+using alcolikLib.Controllers.V1;
 
-namespace alcolik.Controllers
+namespace alcolik.Controllers.V1
 {
-    [Route("api/[controller]")]
     [ApiController]
-    public class AlcoolsController : BaseController<AlcolikDbContext,Alcool>
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    public class AlcoolsController : BaseController<AlcolikDbContext, Alcool>
     {
         public AlcoolsController(AlcolikDbContext context) : base(context)
         {

@@ -8,12 +8,14 @@ using Microsoft.EntityFrameworkCore;
 using alcolik.Data;
 using alcolik.Model;
 using alcolikLib.Controllers;
+using alcolikLib.Controllers.V1;
+using alcolikLib.Controllers.V2;
 
 namespace alcolik.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
-    public class BrandsController : BaseController<AlcolikDbContext,Brand>
+    [Route("api/[controller]")]
+    public class BrandsController : BaseControllerV2<AlcolikDbContext, Brand>
     {
         public BrandsController(AlcolikDbContext context) : base(context)
         {

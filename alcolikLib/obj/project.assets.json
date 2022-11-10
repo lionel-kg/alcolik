@@ -4239,24 +4239,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lione\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Lukam\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lione\\source\\repos\\alcolik\\alcolikLib\\alcolikLib.csproj",
+      "projectUniqueName": "C:\\Users\\Lukam\\Source\\Repos\\AlcolikV2\\alcolikLib\\alcolikLib.csproj",
       "projectName": "alcolikLib",
-      "projectPath": "C:\\Users\\lione\\source\\repos\\alcolik\\alcolikLib\\alcolikLib.csproj",
-      "packagesPath": "C:\\Users\\lione\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lione\\source\\repos\\alcolik\\alcolikLib\\obj\\",
+      "projectPath": "C:\\Users\\Lukam\\Source\\Repos\\AlcolikV2\\alcolikLib\\alcolikLib.csproj",
+      "packagesPath": "C:\\Users\\Lukam\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lukam\\Source\\Repos\\AlcolikV2\\alcolikLib\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\lione\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Lukam\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4264,7 +4259,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

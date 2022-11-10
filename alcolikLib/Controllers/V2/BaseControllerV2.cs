@@ -12,30 +12,30 @@ using alcolikLib.Extensions;
 using System.Diagnostics;
 using System.Xml.Linq;
 
-namespace alcolikLib.Controllers
+namespace alcolikLib.Controllers.V2
 {
-    public abstract class BaseController<TContext, TModel> : ControllerBase where TContext : BaseDbContext where TModel : BaseModel
+    public abstract class BaseControllerV2<TContext, TModel> : ControllerBase where TContext : BaseDbContext where TModel : BaseModel
     {
         protected readonly TContext _context;
 
-        public BaseController(TContext context)
+        public BaseControllerV2(TContext context)
         {
             _context = context;
         }
 
-
-        /*[HttpGet]
-       public async Task<IEnumerable<TModel>> GetAll([FromQuery] string? asc, [FromQuery] Params param)
-       {
-            return await _context.Set<TModel>().Where(x => x.Active).Sort(param).ToListAsync();
-       }*/
+        [HttpGet("search")]
+        public async Task<IEnumerable<TModel>> GetBySearch([FromQuery] string name)
+        {
+            var result = _context.Set<TModel>().Where(e => e.Name.Contains(name));
+            return await result.ToListAsync();
+        }
 
         [HttpGet]
         public async Task<IEnumerable<TModel>> GetByfilter([FromQuery] Params param)
-       {
+        {
             var url = this.Request.Query;
             var properties = typeof(TModel).GetProperties();
-            var newArrayParam = new Dictionary<string,string>();
+            var newArrayParam = new Dictionary<string, string>();
             var properParam = param.GetType();
             foreach (var item in url)
             {
@@ -44,27 +44,28 @@ namespace alcolikLib.Controllers
                     newArrayParam[item.Key] = item.Value;
                 }
             }
-           /* foreach (var property in properties)
-            {
-                if(param.GetType().GetProperty(property.Name) != null)
-                {
-                    var name = property.Name;
-                    newArrayParam[name] = ;
-                    
-                    
+            /* foreach (var property in properties)
+             {
+                 if(param.GetType().GetProperty(property.Name) != null)
+                 {
+                     var name = property.Name;
+                     newArrayParam[name] = ;
 
-                }
-                //if(x.GetProperty(p.Name))
-            }*/
-            
-           /* foreach (KeyValuePair<string,string> kvp in properties)
-            {
-                if (kvp.Key == )
-                
-            }*/
-           
-            return await _context.Set<TModel>().filter(param,newArrayParam).ToListAsync();
+
+
+                 }
+                 //if(x.GetProperty(p.Name))
+             }*/
+
+            /* foreach (KeyValuePair<string,string> kvp in properties)
+             {
+                 if (kvp.Key == )
+
+             }*/
+
+            return await _context.Set<TModel>().filter(param, newArrayParam).Sort(param).ToListAsync();
         }
+
 
         [HttpPost]
         public async Task<IActionResult> PostItem([FromBody] TModel item)
@@ -83,6 +84,7 @@ namespace alcolikLib.Controllers
                 return NotFound();
             return item;
         }
+
         [HttpPut("{id}")]
         public async Task<ActionResult<TModel>> PutItem([FromRoute] int id, [FromBody] TModel item)
         {
