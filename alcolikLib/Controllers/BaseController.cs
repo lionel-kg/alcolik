@@ -23,11 +23,48 @@ namespace alcolikLib.Controllers
             _context = context;
         }
 
-        [HttpGet]
+
+        /*[HttpGet]
        public async Task<IEnumerable<TModel>> GetAll([FromQuery] string? asc, [FromQuery] Params param)
        {
             return await _context.Set<TModel>().Where(x => x.Active).Sort(param).ToListAsync();
-       }
+       }*/
+
+        [HttpGet]
+        public async Task<IEnumerable<TModel>> GetByfilter([FromQuery] Params param)
+       {
+            var url = this.Request.Query;
+            var properties = typeof(TModel).GetProperties();
+            var newArrayParam = new Dictionary<string,string>();
+            var properParam = param.GetType();
+            foreach (var item in url)
+            {
+                if (properParam.GetProperty(item.Key) == null && typeof(TModel).GetProperty(item.Key) != null)
+                {
+                    newArrayParam[item.Key] = item.Value;
+                }
+            }
+           /* foreach (var property in properties)
+            {
+                if(param.GetType().GetProperty(property.Name) != null)
+                {
+                    var name = property.Name;
+                    newArrayParam[name] = ;
+                    
+                    
+
+                }
+                //if(x.GetProperty(p.Name))
+            }*/
+            
+           /* foreach (KeyValuePair<string,string> kvp in properties)
+            {
+                if (kvp.Key == )
+                
+            }*/
+           
+            return await _context.Set<TModel>().filter(param,newArrayParam).ToListAsync();
+        }
 
         [HttpPost]
         public async Task<IActionResult> PostItem([FromBody] TModel item)

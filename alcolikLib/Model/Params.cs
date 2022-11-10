@@ -13,5 +13,6 @@ namespace alcolikLib.Model
         public string? Desc { get; set; }
 
         public string? Range { get; set; }
+       
     }
 }
