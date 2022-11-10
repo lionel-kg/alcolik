@@ -31,7 +31,7 @@ namespace alcolikLib.Controllers
        }*/
 
         [HttpGet]
-        public async Task<IEnumerable<TModel>> GetByfilter([FromQuery] Params param)
+        public async Task<IEnumerable<TModel>> GetByfilter([FromQuery] Params? param)
        {
             var url = this.Request.Query;
             var properties = typeof(TModel).GetProperties();
@@ -43,7 +43,7 @@ namespace alcolikLib.Controllers
                 {
                     newArrayParam[item.Key] = item.Value;
                 }
-            }
+            }*/
            /* foreach (var property in properties)
             {
                 if(param.GetType().GetProperty(property.Name) != null)
@@ -61,6 +61,82 @@ namespace alcolikLib.Controllers
             }*/
            
             return await _context.Set<TModel>().filter(param,newArrayParam).Sort(param).ToListAsync();
+        }
+
+        //pagination 
+
+        [HttpGet("/pagination")]
+        public async Task<ActionResult<IEnumerable<TModel>>> GetAll([FromQuery] Params p)
+        {
+            const int Accept = 50;
+            var url = this.Request.Query;
+            var route = url + Request.Path.Value + Request.QueryString.Value;
+            route = route.Remove(route.IndexOf("Range=") + 6, 3);
+
+            var query = _context.Set<TModel>().Where(x => x.Active);
+            query = query.Sort(p);
+            if (!string.IsNullOrWhiteSpace(p.Range))
+            {
+                string[] values = p.Range.Split('-');
+                var start = int.Parse(values[0]);
+                var end = int.Parse(values[1]);
+
+                var nb = end - start;
+                int nbitems1 = end - 1;
+                int nbitems2 = 0;
+                int totalItems = _context.Set<TModel>().Where(x => x.Active).Count();
+
+                if (start > end || nb > (Accept - 1) || end > (totalItems - 1))
+                    return BadRequest();
+
+                string first = ("0-" + nb);
+                string prev = "";
+                string next = "";
+                string last = "";
+
+                first = route.Replace("Range=", "Range=" + first);
+                first = first + "; rel=\"first\", ";
+                last = route.Replace("Range=", "Range=" + (totalItems - nb) + "-" + totalItems + "; rel=\"last\"");
+
+                nbitems2 = start - 1;
+                nbitems1 = nbitems2 - nb;
+
+                if (nbitems1 >= 0)
+                {
+                    prev = route.Replace("Range=", "Range=" + nbitems1 + "-" + nbitems2 + "; rel=\"prev\", ");
+                }
+                else
+                {
+                    prev = first.Replace("first", "prev");
+                }
+
+                nbitems1 = (start + nb) + 1;
+                nbitems2 = nbitems1 + nb;
+
+                if (nbitems2 <= (totalItems - 1))
+                {
+                    next = route.Replace("Range=", "Range=" + nbitems1 + "-" + nbitems2 + "; rel=\"last\", ");
+                }
+                else
+                {
+                    next = last.Replace("last", "next");
+                }
+
+                //var first = route
+                /*if (nb < 0 && Accept < nb)
+                {
+                    return (IEnumerable<TModel>)BadRequest();
+                }*/
+                this.Response.Headers.Add("Content-Range", p.Range);
+                this.Response.Headers.Add("Accept-Range", Accept.ToString());
+                this.Response.Headers.Add("Link", url + first + prev + next + last);
+                //return await QueryExtensions.Sort(_context.Set<TModel>().Where(x => x.Active), param).ToListAsync();
+                query = query.Pagination(start, end);
+
+            }
+            return await query.ToListAsync();
+
+            //return await _context.Set<TModel>().Where(x => x.Active).OrderBy(x => x.CreatedAt).ThenBy(x => x.ID).ToListAsync();
         }
 
         [HttpPost]

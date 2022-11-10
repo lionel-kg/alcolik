@@ -78,5 +78,11 @@ namespace alcolikLib.Extensions
             else 
                 return (IOrderedQueryable<TModel>)query;
         }
+
+        public static IOrderedQueryable<TModel> Pagination<TModel>(this IQueryable<TModel> query, int start, int end)
+        {
+            return (IOrderedQueryable<TModel>)query.Skip(start).Take((end - start) + 1);
+            //return query.OrderBy(x => x.Name);
+        }
     }
 }
