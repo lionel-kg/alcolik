@@ -43,7 +43,7 @@ namespace alcolikLib.Controllers
                 {
                     newArrayParam[item.Key] = item.Value;
                 }
-            }*/
+            }
            /* foreach (var property in properties)
             {
                 if(param.GetType().GetProperty(property.Name) != null)
