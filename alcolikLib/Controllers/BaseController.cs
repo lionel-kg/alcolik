@@ -50,9 +50,6 @@ namespace alcolikLib.Controllers
                 {
                     var name = property.Name;
                     newArrayParam[name] = ;
-                    
-                    
-
                 }
                 //if(x.GetProperty(p.Name))
             }*/
@@ -63,7 +60,7 @@ namespace alcolikLib.Controllers
                 
             }*/
            
-            return await _context.Set<TModel>().filter(param,newArrayParam).ToListAsync();
+            return await _context.Set<TModel>().filter(param,newArrayParam).Sort(param).ToListAsync();
         }
 
         [HttpPost]
